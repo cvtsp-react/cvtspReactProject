@@ -1,0 +1,24 @@
+
+.bg(@bg: transparent){
+    background: @bg;
+}
+
+.absolute(@top: null, @right: null, @bottom: null, @left: null){
+    position: absolute;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+}
+
+.fixed(@top: 0, @right: 0, @bottom: 0, @left: 0){
+    position: fixed;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+}
+
+.box-shadow(@x: 1px, @y: 1px, @s: 3px, @color: rgb(114, 110, 110)){
+    box-shadow: @x @y @s @color;
+}

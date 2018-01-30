@@ -1,0 +1,32 @@
+@import '../style/index.less';
+
+.icon-default {
+	.bg();
+	&:active{
+	    .bg(@primaryLight);
+	}
+}
+.icon-primary {
+	.bg(@primary);
+	&:active{
+	    .bg(@primaryLight);
+	}
+}
+.icon-success {
+	.bg(@success);
+    &:active{
+        .bg(@successLight);
+    }
+}
+.icon-warning {
+	.bg(@warning);
+    &:active{
+        .bg(@warningLight);
+    }
+}
+.icon-danger {
+	.bg(@danger);
+    &:active{
+        .bg(@dangerLight);
+    }
+}
