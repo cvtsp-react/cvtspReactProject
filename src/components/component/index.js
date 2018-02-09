@@ -70,3 +70,4 @@ export default class Component extends React.Component {
 Component.propTypes = {
 	style: PropTypes.object
 }
+
