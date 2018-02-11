@@ -22,7 +22,7 @@ export default class LoginFrame extends Component {
             style={this.style()}
             className={this.className('cv-loginframe')} >
                 <div className='cv-loginheader'>车辆监控系统</div>
-                <Form onSubmit={this.handlerSubmit.bind(this)} className='cv-loginform'>
+                <Form onSubmit={this.handlerSubmit.bind(this,this.refs.tips)} className='cv-loginform'>
                     <Form.Item>
                         {
                             getFieldDecorator('enterpriseCode', {
@@ -53,6 +53,7 @@ export default class LoginFrame extends Component {
                             (<Input type="password" prefix={<Icons name="suo" size="18"/>} placeholder="密码" />)
                         }
                     </Form.Item>
+                    <div ref="tips" className="tips"></div>
                     <Form.Item>
                         <Button 
                         loading={this.state.loading}
@@ -73,13 +74,13 @@ export default class LoginFrame extends Component {
      * 提交数据
      * @param {*} e 
      */
-    handlerSubmit(e){
+    handlerSubmit(tips,e){
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if(!err && this.props.onSubmit){
                 // 对密码加密
                 values.password = Password.$SHA512(Password.$SHA512(values.password) +'&'+values.account);
-                this.props.onSubmit(values);
+                this.props.onSubmit(values,tips);
             }
         })
     }

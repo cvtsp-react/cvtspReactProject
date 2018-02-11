@@ -38,6 +38,10 @@ const VehicleupdownLog = Loadable({
     loader: () => import ('views/monitorPlateform/logging/vehicleUpDownLog'),
     loading: MyLoadingComponent
 })
+const FatigueDriving = Loadable({
+    loader: () => import ('views/monitorPlateform/statistics/fatigueDriving'),
+    loading: MyLoadingComponent
+})
 export default class RouteMonitor extends Component {
     render() {
         return (
@@ -45,6 +49,7 @@ export default class RouteMonitor extends Component {
                 <Route exact path="/monitor/home" component={Home} />
                 <Route exact path="/monitor/multiCar" component={MultiVehicle} />
                 <Route exact path="/monitor/vehicleIsOnlineLog" component={VehicleupdownLog} />
+                <Route exact path="/monitor/fatigueDriving" component={FatigueDriving} />
                 {/* <Route exact path="/app/auth/routerEnter" component={(props) => this.requireAuth('auth/testPage', <RouterEnter {...props} />)} />
 
                 <Route render={() => <Redirect to="/404" />} /> */}

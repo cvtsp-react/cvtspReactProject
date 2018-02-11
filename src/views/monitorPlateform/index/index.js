@@ -6,6 +6,7 @@ import RouteMonitor from 'router/monitor'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Header from './header'
 import AlarmNotice from './alarmNotice'
+import {getMonitorMenus} from '../../../actions'
 import './style/index.less'
 
 @connect(state => {return {login: state.login, monitor: state.monitor}})
@@ -45,8 +46,9 @@ export default class MonitorApp extends Component {
      * 菜单请求处理
      */
     async monitorMenus(){
-        const {data, flag} = await this.http({url: '/rolemenu/findMenuTree'});   
-        flag && this.props.dispatch({type: 'getMonitorMenus', payload: data});
+        // const {data, flag} = await this.http({url: '/rolemenu/findMenuTree'});   
+        // flag && this.props.dispatch({type: 'getMonitorMenus', payload: data});
+        this.props.dispatch(getMonitorMenus());
     }
     
 }

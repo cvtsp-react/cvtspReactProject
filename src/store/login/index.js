@@ -6,6 +6,7 @@ const initialState = {
 const mutations = {
     // 设置用户信息
     setUserMessage(state, params){
+        console.log(params)
         localStorage.setItem('userInfo', JSON.stringify(params.userInfo));
         localStorage.setItem('token', params.token);
         localStorage.setItem('mapType', params.mapType);
