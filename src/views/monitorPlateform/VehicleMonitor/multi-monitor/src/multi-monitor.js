@@ -12,7 +12,6 @@ export default class MultiMonitor extends Component {
     }
 
     render() {
-        const isRender = React.createElement(this.state.flag, {});
         return (
             <div className="multi-monitor">
                 <Select defaultValue="0" onChange={this.onChange.bind(this)}>
