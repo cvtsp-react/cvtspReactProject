@@ -1,7 +1,10 @@
 import React from 'react'
 import {Component} from 'components'
-import {Help} from 'utils'
+import {Dom} from 'utils'
 
+/**
+ * 共享设计组件节约dom的创建
+ */
 export default class FlyWeight extends Component {
     static defaultProps = {
         max: 50,
@@ -39,13 +42,13 @@ export default class FlyWeight extends Component {
         ele.scrollTop = ele.scrollHeight - ele.offsetHeight;
     }
     handlerEnter(event){
-        const _self = Help.delegate(event, this.props.target);
+        const _self = Dom.delegate(event, this.props.target);
         if(_self && this.props.onMouseOver){
             this.props.onMouseOver(_self);
         }
     }
     handlerLeave(event){
-        const _self = Help.delegate(event, this.props.target);
+        const _self = Dom.delegate(event, this.props.target);
         if(_self && this.props.onMouseOut){
             this.props.onMouseOut(_self);
         }

@@ -30,6 +30,7 @@
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "0.11.2",
     "fs-extra": "3.0.1",
+    "handsome-helpers": "^0.0.4",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "js-sha512": "^0.7.1",

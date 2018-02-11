@@ -135,6 +135,7 @@ export default class VehicleupdownLog extends Component {
         const {RangePicker} = DatePicker;
 
         return (
+<<<<<<< HEAD
             <div className={this.className('cv-vehicleupdownlog')}>
                 <div className="header">
                     <Form layout="inline">
@@ -173,7 +174,12 @@ export default class VehicleupdownLog extends Component {
                 <div className="dataTable">
                     {this.showTable()}
                 </div>
+=======
+            <div style={this.style()} className={this.className()}>
+                <h2 className=""></h2>
+>>>>>>> 1f162b840199cc00f4317ecaba145b8436a49503
             </div>
         )
     }
 }
+

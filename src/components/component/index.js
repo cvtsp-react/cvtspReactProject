@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {Help, Http, Config} from '@/utils'
+import {Detail, Http, Config} from '@/utils'
 
 function classNames(){
 	var classes = [];
@@ -37,7 +37,7 @@ export default class Component extends React.Component {
 				loop(ls, i);
 			}
 		})(obj, 0);
-		this.setState(Help.extend(true, this.state, obj));
+		this.setState(Detail.extend(true, this.state, obj));
 		this.forceUpdate();
 	}
 	className(...args){
@@ -70,3 +70,4 @@ export default class Component extends React.Component {
 Component.propTypes = {
 	style: PropTypes.object
 }
+
