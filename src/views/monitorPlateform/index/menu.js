@@ -2,8 +2,9 @@ import React from 'react'
 import {Input} from 'antd'
 import {Link} from 'react-router-dom'
 import {Component} from 'components'
-import {Help} from 'utils'
+import {Optimize} from 'utils'
 import './style/menu.less'
+
 
 export default class Menus extends Component {
     constructor(props){
@@ -33,7 +34,7 @@ export default class Menus extends Component {
         )
     }
     componentWillMount(){
-        this.throttle = Help.throttle(_ => {
+        this.throttle = Optimize.throttle(_ => {
             this.filterMenuList();
         }, 1000)
     }

@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react'
 import {Component} from 'components'
-import {Help} from 'utils'
+import {Optimize, Browser, Detail} from 'utils'
 import defaultBarOptions from '../assets/defaultBarOptions'
 import defaultLineOptions from '../assets/defaultLineOptions'
 import defaultMapOptions from '../assets/defaultMapOptions'
 import defaultPieOptions from '../assets/defaultPieOptions'
+
 
 export default class Chart extends Component {
     static propTypes = {
@@ -26,7 +27,7 @@ export default class Chart extends Component {
         )
     }
     componentWillMount(){
-        this.throttle = Help.throttle(_ => {
+        this.throttle = Optimize.throttle(_ => {
             this.echart && this.echart.resize();
         });
     }
@@ -37,7 +38,7 @@ export default class Chart extends Component {
             }
             // 图表初始化
             this.echart = echarts.init(this.refs['chart']);
-            this._setOptions();
+            this._setOptions({});
             window.addEventListener('resize', this.throttle);   
         })    
     }
@@ -50,10 +51,10 @@ export default class Chart extends Component {
     _setOptions(data){
         this.echart.clear();
         switch(this.props.name){
-            case 'line': return this.echart.setOption(Help.extend({}, defaultLineOptions, data));
-            case 'bar': return this.echart.setOption(Help.extend({}, defaultBarOptions, data));
-            case 'pie': return this.echart.setOption(Help.extend({}, defaultPieOptions, data));
-            case 'map': return this.echart.setOption(Help.extend({}, defaultMapOptions, data));
+            case 'line': return this.echart.setOption(Detail.extend({}, defaultLineOptions, data));
+            case 'bar': return this.echart.setOption(Detail.extend({}, defaultBarOptions, data));
+            case 'pie': return this.echart.setOption(Detail.extend({}, defaultPieOptions, data));
+            case 'map': return this.echart.setOption(Detail.extend({}, defaultMapOptions, data));
         }
     }
     /**
@@ -66,7 +67,7 @@ export default class Chart extends Component {
                 const $script = document.createElement('script');
                 $script.src = 'http://lib.cvtsp.com/echarts/echarts.min.js';
                 global.document.body.appendChild($script);
-                if(Help.browser.IS_IE){
+                if(Browser.IS_IE && Browser.IE_VERSION < 11){
                     $script.onreadystatechange = () => {
                         if($script.readyState === 'loaded' || $script.readyState === 'complete'){
                             resolve(global.echarts);

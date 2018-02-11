@@ -31,20 +31,21 @@ const Home = Loadable({
     loading: MyLoadingComponent
 })
 const MultiVehicle = Loadable({
-    loader: () => import('views/monitorPlateform/multiVehicle'),
+    loader: () => import('views/monitorPlateform/VehicleMonitor/multi-monitor'),
     loading: MyLoadingComponent
 })
 const VehicleupdownLog = Loadable({
     loader: () => import ('views/monitorPlateform/logging/vehicleUpDownLog'),
     loading: MyLoadingComponent
 })
+
 export default class RouteMonitor extends Component {
     render() {
         return (
             <Switch>
                 <Route exact path="/monitor/home" component={Home} />
-                <Route exact path="/monitor/multiCar" component={MultiVehicle} />
                 <Route exact path="/monitor/vehicleIsOnlineLog" component={VehicleupdownLog} />
+                <Route exact path="/monitor/VehicleMonitor/multi-monitor" component={MultiVehicle}/>
                 {/* <Route exact path="/app/auth/routerEnter" component={(props) => this.requireAuth('auth/testPage', <RouterEnter {...props} />)} />
 
                 <Route render={() => <Redirect to="/404" />} /> */}
