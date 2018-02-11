@@ -51,6 +51,7 @@ module.exports = {
   views: resolveApp('src/views'),
   utils: resolveApp('src/utils'),
   router: resolveApp('src/router'),
+  decorators: resolveApp('src/decorators'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),

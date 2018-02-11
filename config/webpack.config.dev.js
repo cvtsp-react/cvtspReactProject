@@ -98,7 +98,8 @@ module.exports = {
         'components': paths.components,
         'views': paths.views,
         'utils': paths.utils,
-        'router': paths.router
+        'router': paths.router,
+        'decorators': paths.decorators
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

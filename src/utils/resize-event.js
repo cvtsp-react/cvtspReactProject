@@ -63,7 +63,7 @@ const createStyles = function() {
         const animationKeyframes = `@${keyFramePrefix}keyframes ${RESET_ANIMATION_NAME} {from {opacity: 0} to {opacity: 0}}`;
     }
 }
-
+git branch
 /**
  * 添加监听元素尺寸变化事件
  * @param {Element} element 
