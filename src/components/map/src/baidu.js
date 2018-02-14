@@ -20,7 +20,8 @@ export default class BaiduMap extends Component {
     
     componentDidMount() {
         const {mapInit} = this;
-        this.props.asyncDownloadScript('BMap', '//api.map.baidu.com/getscript?v=2.0&ak=8GrVRotzGKj3xzIRu07hCzx2')
+        const {asyncDownloadScript} = this.props.publicMethods;
+        asyncDownloadScript('BMap', '//api.map.baidu.com/getscript?v=2.0&ak=8GrVRotzGKj3xzIRu07hCzx2')
         .then(mapInit.bind(this));
     }
 
@@ -31,7 +32,6 @@ export default class BaiduMap extends Component {
         this.mapApi = new BMap.Map(this.state.mapid, {enableMapClick:false});
         const city = new BMap.LocalCity();
         city.get(result => {
-            console.log(result.name)
             this.mapApi.centerAndZoom(result.name, 15);				
         });
     } 

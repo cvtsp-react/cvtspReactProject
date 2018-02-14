@@ -7,7 +7,7 @@ export default class MultiMonitor extends Component {
     constructor() {
         super();
         this.state = {
-            flag: Map.Baidu
+            map: Map.Baidu
         }
     }
 
@@ -18,14 +18,14 @@ export default class MultiMonitor extends Component {
                     <Select.Option value="0">百度</Select.Option>
                     <Select.Option value="1">高德</Select.Option>
                 </Select>
-                <DynamicComponent className="monitor-map" is={this.state.flag} />
+                <DynamicComponent className="monitor-map" is={this.state.map} />
             </div>
         )
     }
     onChange(value) {
         switch(Number(value)) {
-            case 0: return this.setState({flag: Map.Baidu});
-            case 1: return this.setState({flag: Map.Gaode});
+            case 0: return this.setState({map: Map.Baidu});
+            case 1: return this.setState({map: Map.Gaode});
         }
     }
 }

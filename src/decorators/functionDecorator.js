@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from '@/components'
-import {Browser} from 'utils'
+import { Browser } from 'utils'
 
 export default (WrappedComponent) => {
     return class Hoc extends Component {
@@ -8,14 +8,15 @@ export default (WrappedComponent) => {
             super(props);
         }
         render() {
-            const newProps = {
+            const publicMethods = {
                 asyncDownloadScript: this.asyncDownloadScript.bind(this)
             }
 
             return (
-                <WrappedComponent {...this.props} {...newProps} />
+                <WrappedComponent {...this.props} publicMethods={publicMethods} />
             )
         }
+        
 		/**
          * 异步加载cdn脚本文件
          * @param {String} name: 全局变量唯一性
