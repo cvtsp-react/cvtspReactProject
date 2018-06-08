@@ -1,16 +1,19 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {Component} from 'components'
 
 export default class DynamicComponent extends Component {
     static defaultProps = {
+        // 组件类名
         is: null
     }
-    constructor(props) {
-        super(props);
+    static propTypes = {
+        is: PropTypes.func
     }
     render() {
-        return React.createElement(this.props.is, {
+        return this.props.is 
+        ? React.createElement(this.props.is, {
             ...this.props
         })
+        : React.createElement('div')
     }
 }

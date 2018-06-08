@@ -16,8 +16,7 @@ export default class BaiduMap extends Component {
         return (
             <div className={this.className('map-base')} style={this.style()} id={this.state.mapid}></div>
         )
-    }
-    
+    }   
     componentDidMount() {
         const {mapInit} = this;
         const {asyncDownloadScript} = this.props.publicMethods;

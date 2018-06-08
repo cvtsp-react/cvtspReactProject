@@ -11,7 +11,9 @@ const initialState = {
 const mutations = {
     getMonitorMenus(state, params){
         // 过滤监控平台的菜单
-        const menus = params.find(val => val.id === 2);
+        const menus = params.find(val => {
+            return val.id  == 2;
+        });
         return {
             ...state,
             monitorMenus: menus.child

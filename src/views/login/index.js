@@ -23,21 +23,15 @@ export default class Login extends Component {
             </div>
         )
     }
-    // 登录框提交
-    // async handlerSubmit(values){
-    //     const {data, flag} = await this.http({url: '/login', params: values}, 'loading');
-    //     if(flag){
-    //         this.props.dispatch({type: 'setUserInfo', payload: data});
-    //         this.props.history.push('/m');
-    //     }
-    // }
-    handlerSubmit(values,tips){
-        this.props.dispatch(setUserInfo(values)).then(data => {
-            if(data.flag){
-                this.props.history.push('/m');
-            }else{
-                tips.innerHTML = '账号或密码不存在';
-            }
-        });
+
+    async handlerSubmit(values,tips){
+        const { flag, data } = await this.http({ url: '/login', params: values });
+        
+        if(flag) {
+            localStorage.setItem('token', data);
+            this.props.history.push('/main');
+        }else {
+            tips.innerHTML = '账号或密码不存在';
+        }
     }
 }

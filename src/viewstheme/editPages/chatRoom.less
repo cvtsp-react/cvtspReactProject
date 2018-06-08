@@ -1,0 +1,48 @@
+.chatroom {
+    display: flex;
+    flex-direction: column;
+}
+.chatroom-show {
+    height: 450px;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528139673311&di=8f4ac6ad68958af4f9990eee73afd513&imgtype=0&src=http%3A%2F%2Fuploads.xuexila.com%2Fallimg%2F1704%2F983-1F419145525.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto;
+    a {
+        color: red;
+        text-decoration:underline;
+    }
+    .chatroom-item {
+        display: flex;
+        align-content: center;
+        padding: 10px;
+    }
+    .chatroom-avatar {
+        width: 25px;
+        height: 25px;
+        margin: 3px 5px;
+        border-radius: 50%;
+        background: #ccc;
+        display: inline-block;
+    }
+    .chatroom-name {
+        font-size: 12px;
+    }
+    .chatroom-content {
+        padding: 5px;
+        margin-top: 3px;
+        max-width: 400px;
+        background: rgba(223, 242, 135, 0.966);
+    }
+}
+
+.chatroom-draw {
+    width: 500px;
+    height: 300px;
+    box-shadow: 1px 1px 1px #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: move;
+    background: #fff;
+}

@@ -8,6 +8,7 @@ export default (WrappedComponent) => {
             super(props);
         }
         render() {
+            // 公共方法名
             const publicMethods = {
                 asyncDownloadScript: this.asyncDownloadScript.bind(this)
             }

@@ -21,21 +21,11 @@ export default class LoginFrame extends Component {
             <div 
             style={this.style()}
             className={this.className('cv-loginframe')} >
-                <div className='cv-loginheader'>车辆监控系统</div>
+                <div className='cv-loginheader'>我们的文档</div>
                 <Form onSubmit={this.handlerSubmit.bind(this,this.refs.tips)} className='cv-loginform'>
                     <Form.Item>
                         {
-                            getFieldDecorator('enterpriseCode', {
-                                rules: [
-                                    {required: true, message: '请输入公司编码'}
-                                ]
-                            })
-                            (<Input prefix={<Icons name="building" size="18" />} placeholder="公司编号" />)
-                        }
-                    </Form.Item>
-                    <Form.Item>
-                        {
-                            getFieldDecorator('account', {
+                            getFieldDecorator('user', {
                                 rules: [
                                     {required: true, message: '请输入用户名'}
                                 ]
@@ -79,7 +69,6 @@ export default class LoginFrame extends Component {
         this.props.form.validateFields((err, values) => {
             if(!err && this.props.onSubmit){
                 // 对密码加密
-                values.password = Password.$SHA512(Password.$SHA512(values.password) +'&'+values.account);
                 this.props.onSubmit(values,tips);
             }
         })

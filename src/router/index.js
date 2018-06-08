@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Loadable from 'react-loadable'
@@ -15,22 +16,29 @@ const MyLoadingComponent = ({ isLoading, error }) => {
         return null;
     }
 };
-const Login = Loadable({
-    loader: () => import('views/login'),
+
+
+const editPages = Loadable({
+    loader: () => import('views/editPages'),
     loading: MyLoadingComponent
 })
-const MonitorApp = Loadable({
-    loader: () => import('views/monitorPlateform/index'),
+
+const login = Loadable({
+    loader: () => import('views/login'),
     loading: MyLoadingComponent
 })
 
 export default () => (
-    <Router>
-        <Switch>
-            <Route exact path="/" render={() => <Redirect to="/login" />}/>
-            <Route exact path="/m" render={() => <Redirect to="/monitor/home" />} />        
-            <Route path="/login" component={Login} />
-            <Route path="/monitor" component={MonitorApp} />
-        </Switch>
-    </Router>
+<Router>
+    <Switch>
+        <Route exact path="/" render={() => <Redirect to="/login" />} />
+
+        <Route exact path="/main" render={() => <Redirect to="/editPages/editComponents" />} />      
+
+        <Route path="/editPages" component={editPages} />
+
+        <Route path="/login" component={login} />
+
+    </Switch>
+</Router>
 )

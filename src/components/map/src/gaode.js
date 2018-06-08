@@ -19,8 +19,9 @@ export default class GaodeMap extends Component {
     }
     componentDidMount() {
         const {mapInit} = this;
+        const {asyncDownloadScript} = this.props.publicMethods;
         const ak = 'edfc1f354a8b8203758949cf999b8b4b';
-        this.props.asyncDownloadScript('AMap', `http://webapi.amap.com/maps?v=1.4.2&key=${ak}`)
+        asyncDownloadScript('AMap', `http://webapi.amap.com/maps?v=1.4.2&key=${ak}`)
         .then(mapInit.bind(this))
     }
     mapInit() {

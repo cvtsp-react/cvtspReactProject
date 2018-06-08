@@ -5,7 +5,6 @@ import store from '@/store'
 import '@/assets/css/index.less'
 import RouteApp from 'router'
 
-// 这就是传说中的动态组件
 const render = Component => {   
     ReactDOM.render(
         <Provider store={store}>

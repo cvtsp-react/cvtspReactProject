@@ -8,7 +8,14 @@ function http(options){
 		axios.defaults.withCredentials = true;	
 		
 		axios(options).then(mess => {
-			resolve(mess.data);
+			const { code, flag } = mess.data;
+
+			if(code && code == 401 ) {
+				window.location.href = '#';
+				window.location.reload();
+			}else {
+				resolve(mess.data);
+			}
 		}, error => {
 			reject(error);
 		})
